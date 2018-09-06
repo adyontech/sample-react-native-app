@@ -14,9 +14,13 @@
     "log:ios": "react-native log-ios"
   },
   "dependencies": {
+    "native-base": "^2.8.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-vector-icons": "^5.0.0"
+    "react-native-navigation": "^1.1.485",
+    "react-native-svg-circular-progress": "^1.0.4",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^2.12.1"
   },
   "devDependencies": {
     "@types/react": "^16.4.13",
