@@ -4,7 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "clean:android": "yarn clean && yarn android",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "clean": "cd android && ./gradlew clean",
+    "link:project": "react-native link",
+    "log:android": "react-native log-android",
+    "log:ios": "react-native log-ios"
   },
   "dependencies": {
     "react": "16.4.1",
