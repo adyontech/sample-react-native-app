@@ -8,13 +8,30 @@ import {
   View
 } from "react-native";
 import { createStackNavigator, createSwitchNavigator } from "react-navigation";
+import { Animated, Easing } from "react-native";
 
 import NewsFeed from "./../../screens/NewsFeed/index";
 import LoginScreen from "./../../screens/AuthScreens/login/index";
+import ForgotPasswordScreen from "./../../screens/AuthScreens/forgotPassword";
 import AuthLoadingScreen from "./../../screens/AuthLoading/index";
 
 const AppStack = createStackNavigator({ NewsFeed: NewsFeed });
-const AuthStack = createStackNavigator({ SignIn: LoginScreen });
+const AuthStack = createStackNavigator(
+  {
+    SignIn: LoginScreen,
+    ForgotPassword: ForgotPasswordScreen
+  },
+  {
+    headerMode: "none",
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
+      }
+    })
+  }
+);
 export default createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
