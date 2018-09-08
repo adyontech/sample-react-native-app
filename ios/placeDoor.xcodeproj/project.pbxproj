@@ -708,7 +708,7 @@
 			dependencies = (
 			);
 			name = placeDoor;
-			productName = "Hello World";
+			productName = "placeDoor";
 			productReference = 13B07F961A680F5B00A75B9A /* placeDoor.app */;
 			productType = "com.apple.product-type.application";
 		};
