@@ -21,12 +21,16 @@ export default class SideBar extends React.Component<Props> {
             dataArray={routes}
             renderRow={data => {
               return (
-                <ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate(data)}
-                >
-                  <Text>{data}</Text>
-                </ListItem>
+                <Container>
+                  <Content>
+                    <ListItem
+                      button
+                      onPress={() => this.props.navigation.navigate(data)}
+                    >
+                      <Text>{data}</Text>
+                    </ListItem>
+                  </Content>
+                </Container>
               );
             }}
           />
