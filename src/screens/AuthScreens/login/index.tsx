@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import {
+  NavigationInjectedProps,
+  NavigationEventSubscription
+} from "react-navigation";
+import {
   Platform,
   StyleSheet,
   Text,
@@ -13,16 +17,16 @@ import {
   KeyboardAvoidingView,
   Image
 } from "react-native";
-
-export default class Login extends Component {
+interface Props extends NavigationInjectedProps {}
+export default class Login extends Component<Props> {
   // keyboardDidShowListener: any;
   // keyboardDidHideListener: any;
   // keyboardPresent: Boolean;
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
-    // this.keyboardPresent = false;
-    super(props);
+    console.log(props);
     this.state = {};
+    this._onPressFPButton = this._onPressFPButton.bind(this);
   }
   // componentWillMount() {
   //   this.keyboardDidShowListener = Keyboard.addListener(
@@ -43,6 +47,12 @@ export default class Login extends Component {
   // _keyboardToggle(val) {
   //   this.keyboardPresent = val;
   // }
+  _onPressFPButton() {
+    console.log("Damn someone pressed me");
+    console.log(this.props.navigation.navigate);
+
+    this.props.navigation.navigate("ForgotPassword");
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -84,8 +94,14 @@ export default class Login extends Component {
                   <Text style={styles.buttonText}>Sign In</Text>
                 </TouchableOpacity>
               </View>
+
               <View style={styles.infoContainer}>
-                <Text style={styles.ForgotPassword}>Forgot password?</Text>
+                <Text
+                  style={styles.ForgotPassword}
+                  onPress={this._onPressFPButton}
+                >
+                  Forgot password?
+                </Text>
               </View>
             </View>
           </TouchableWithoutFeedback>
@@ -136,10 +152,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#f7c744",
     paddingVertical: 15
   },
+  buttonFP: {
+    backgroundColor: "#f7c744"
+    // paddingVertical:
+  },
   buttonText: {
     textAlign: "center",
     fontWeight: "bold",
-    color: "yellow",
+    color: "rgb(32,53, 70)",
     fontSize: 18
   },
   ForgotPassword: {
