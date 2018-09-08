@@ -24,7 +24,6 @@ export default class Login extends Component<Props> {
   // keyboardPresent: Boolean;
   constructor(props: Props) {
     super(props);
-    console.log(props);
     this.state = {};
     this._onPressFPButton = this._onPressFPButton.bind(this);
   }
@@ -48,9 +47,6 @@ export default class Login extends Component<Props> {
   //   this.keyboardPresent = val;
   // }
   _onPressFPButton() {
-    console.log("Damn someone pressed me");
-    console.log(this.props.navigation.navigate);
-
     this.props.navigation.navigate("ForgotPassword");
   }
   render() {

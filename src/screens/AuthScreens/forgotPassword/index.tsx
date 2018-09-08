@@ -21,7 +21,6 @@ interface Props extends NavigationInjectedProps {}
 export default class Login extends Component<Props> {
   constructor(props: Props) {
     super(props);
-    console.log(props);
     this.state = {};
     this._onPressLoginButton = this._onPressLoginButton.bind(this);
   }
@@ -45,9 +44,6 @@ export default class Login extends Component<Props> {
   //   this.keyboardPresent = val;
   // }
   _onPressLoginButton() {
-    console.log("Damn someone pressed me");
-    console.log(this.props.navigation.navigate);
-
     this.props.navigation.navigate("SignIn");
   }
   render() {

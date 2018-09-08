@@ -13,14 +13,13 @@ import { Text } from "native-base";
 export default class AuthLoadingScreen extends React.Component {
   constructor() {
     super();
-    console.log("userToken");
     this._bootstrapAsync();
   }
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem("userToken");
-    this.props.navigation.navigate(userToken ? "App" : "Auth");
+    this.props.navigation.navigate(userToken ? "Auth" : "App");
     console.log(userToken);
   };
 
