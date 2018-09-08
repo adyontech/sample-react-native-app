@@ -1,20 +1,3 @@
-// import React, { Component } from "react";
-// import { Platform, StyleSheet, Text, View } from "react-native";
-// import InnerScreens from "./../../Navigation/Switcher/index";
-
-// export default class Login extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-//   render() {
-//     return (
-//       <View style={{ backgroundColor: "white" }}>
-//         <InnerScreens />
-//       </View>
-//     );
-//   }
-// }
 import React from "react";
 import { StatusBar } from "react-native";
 import {
@@ -37,7 +20,7 @@ export default class HomeScreen extends React.Component {
     this.openDrawer = this.openDrawer.bind(this);
   }
   openDrawer() {
-    console.log(this.props);
+    // console.log(this.props.navigation.navigate);
     this.props.navigation.navigate("DrawerOpen");
   }
   render() {
@@ -45,11 +28,7 @@ export default class HomeScreen extends React.Component {
       <Container>
         <Header>
           <Left>
-            <Button
-              transparent
-              onPress={this.openDrawer}
-              // onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            >
+            <Button transparent onPress={this.openDrawer}>
               <Icon name="menu" />
             </Button>
           </Left>
@@ -59,22 +38,6 @@ export default class HomeScreen extends React.Component {
           <Right />
         </Header>
         <Content padder>
-          <Card>
-            <CardItem>
-              <Body>
-                <Text>Chat App to talk some awesome people!</Text>
-              </Body>
-            </CardItem>
-          </Card>
-          <Button
-            full
-            rounded
-            dark
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("Chat")}
-          >
-            <Text>Chat With People</Text>
-          </Button>
           <Button
             full
             rounded
