@@ -41,7 +41,6 @@ export default class Profile extends Component {
     this.openDrawer = this.openDrawer.bind(this);
   }
   openDrawer() {
-    console.log(this.props);
     this.props.navigation.openDrawer();
   }
   render() {
@@ -62,13 +61,6 @@ export default class Profile extends Component {
         <Content>
           <Text>This is Content Section</Text>
         </Content>
-        {/* <Footer> */}
-        {/* <FooterTab>
-              <Button full>
-                <Text>Footer</Text>
-              </Button>
-            </FooterTab>
-          </Footer> */}
       </Container>
     );
   }

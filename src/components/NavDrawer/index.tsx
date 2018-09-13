@@ -25,7 +25,6 @@ import {
   NavigationEventSubscription
 } from "react-navigation";
 import { Col, Row, Grid } from "react-native-easy-grid";
-const routes = ["Home", "Chat", "Profile"];
 interface Props extends NavigationInjectedProps {}
 
 export default class SideBar extends React.Component<Props> {
@@ -50,11 +49,11 @@ export default class SideBar extends React.Component<Props> {
                       <Row>
                         <Image
                           style={styles.profileImage}
-                          source={require("./../../static/img/rnicon.png")}
+                          source={require("./../../static/img/c.jpg")}
                         />
                       </Row>
                       <Row>
-                        <Text style={styles.studentName}>Aditya Sharma</Text>
+                        <Text style={styles.studentName}>Aayushi Agarwal</Text>
                       </Row>
                       <Row>
                         <Text
@@ -70,11 +69,21 @@ export default class SideBar extends React.Component<Props> {
                   </Body>
                 </CardItem>
               </Card>
-              <Card transparent style={{ paddingLeft: 10, marginTop: 10 }}>
+              <Card
+                transparent
+                style={{
+                  paddingLeft: 10,
+                  marginTop: 10,
+                  flex: 1,
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start"
+                }}
+              >
                 <Grid>
                   <Row>
                     <Button
                       full
+                      style={{ width: "100%", alignItems: "flex-start" }}
                       transparent
                       light
                       onPress={() => this.props.navigation.navigate("Profile")}
@@ -85,6 +94,7 @@ export default class SideBar extends React.Component<Props> {
                   <Row>
                     <Button
                       full
+                      style={{ width: "100%" }}
                       transparent
                       light
                       onPress={() => this.props.navigation.navigate("Profile")}
@@ -95,6 +105,7 @@ export default class SideBar extends React.Component<Props> {
                   <Row>
                     <Button
                       full
+                      style={{ width: "100%" }}
                       transparent
                       light
                       onPress={() => this.props.navigation.navigate("Profile")}
@@ -105,14 +116,15 @@ export default class SideBar extends React.Component<Props> {
                 </Grid>
               </Card>
             </View>
-            <View>
+            <View style={{ bottom: 0 }}>
               <Card transparent style={styles.bottomCard}>
                 <Grid>
-                  <Row style={{ height: 60, padding: 10 }}>
+                  <Row style={{ height: 60, padding: 5 }}>
                     <Button
                       iconLeft
                       transparent
                       primary
+                      style={{ width: "100%" }}
                       full
                       light
                       onPress={() => this.logOut()}
@@ -121,11 +133,11 @@ export default class SideBar extends React.Component<Props> {
                       <Text style={styles.logOut}> Log Out</Text>
                     </Button>
                   </Row>
-                  <Row style={{ height: 60, padding: 10 }}>
+                  <Row style={{ height: 30, padding: 2 }}>
                     <Col size={2} style={{ paddingLeft: 15 }}>
                       <Image
                         style={styles.logoImage}
-                        source={require("./../../static/img/rnicon.png")}
+                        source={require("./../../static/img/s.png")}
                       />
                     </Col>
                     <Col size={1} style={{ paddingTop: 10 }}>
@@ -163,8 +175,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   profileImage: {
-    height: 80,
-    width: 80,
+    height: 100,
+    width: 100,
     marginBottom: 10,
     borderRadius: 50
   },
@@ -195,7 +207,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 130
+    height: 100
   },
   bottomCardText: {
     fontSize: 15
