@@ -9,13 +9,75 @@ import {
   Button,
   Body,
   Content,
-  Text,
   Card,
+  Text,
   CardItem
 } from "native-base";
+import {
+  Platform,
+  StyleSheet,
+  View,
+  TouchableWithoutFeedback,
+  StatusBar,
+  TextInput,
+  SafeAreaView,
+  Keyboard,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Image
+} from "react-native";
+import {
+  NavigationInjectedProps,
+  NavigationEventSubscription
+} from "react-navigation";
+import { Col, Row, Grid } from "react-native-easy-grid";
 
+import Entypo from "react-native-vector-icons/Entypo";
+const routes = ["Home", "Chat", "Profile"];
+interface Props extends NavigationInjectedProps {}
 export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.openDrawer = this.openDrawer.bind(this);
+  }
+  openDrawer() {
+    console.log(this.props);
+    this.props.navigation.openDrawer();
+  }
   render() {
-    return <Text>ProfileScreen</Text>;
+    return (
+      //   <StatusBar barStyle="light-content" />
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={this.openDrawer}>
+              <Icon name="menu" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <Text>This is Content Section</Text>
+        </Content>
+        {/* <Footer> */}
+        {/* <FooterTab>
+              <Button full>
+                <Text>Footer</Text>
+              </Button>
+            </FooterTab>
+          </Footer> */}
+      </Container>
+    );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: 500,
+    backgroundColor: "green",
+    flexDirection: "column"
+  }
+});

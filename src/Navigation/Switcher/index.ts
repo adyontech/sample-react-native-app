@@ -10,7 +10,6 @@ import {
 import { createStackNavigator, createSwitchNavigator } from "react-navigation";
 import { Animated, Easing } from "react-native";
 
-// import InnerScreens from "./../../screens/InnerScreenLayout/index";
 import HomeScreenRouter from "./.././../Navigation/InnerSwitcher/index";
 import LoginScreen from "./../../screens/AuthScreens/login/index";
 import ForgotPasswordScreen from "./../../screens/AuthScreens/forgotPassword";

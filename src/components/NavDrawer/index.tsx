@@ -124,7 +124,7 @@ export default class SideBar extends React.Component<Props> {
                   <Row style={{ height: 60, padding: 10 }}>
                     <Col size={2} style={{ paddingLeft: 15 }}>
                       <Image
-                        style={styles.profileImage}
+                        style={styles.logoImage}
                         source={require("./../../static/img/rnicon.png")}
                       />
                     </Col>
@@ -163,6 +163,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   profileImage: {
+    height: 80,
+    width: 80,
+    marginBottom: 10,
+    borderRadius: 50
+  },
+
+  logoImage: {
     height: 30,
     width: 30,
     marginBottom: 10,
