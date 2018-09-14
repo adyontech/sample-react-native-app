@@ -38,118 +38,128 @@ export default class SideBar extends React.Component<Props> {
   }
   render() {
     return (
-      <Container style={styles.containerClass}>
-        <Content>
-          <View style={styles.contentClass}>
-            <View style={{ flex: 12, flexDirection: "column" }}>
+      <Container style={{ padding: 0 }}>
+        <Content contentContainerStyle={styles.containerClass}>
+          <View>
+            <View>
               <Card transparent>
                 <CardItem>
                   <Body>
-                    <Grid style={{ backgroundColor: "white", paddingLeft: 10 }}>
-                      <Row>
-                        <Image
-                          style={styles.profileImage}
-                          source={require("./../../static/img/c.jpg")}
-                        />
-                      </Row>
-                      <Row>
-                        <Text style={styles.studentName}>Aayushi Agarwal</Text>
-                      </Row>
-                      <Row>
-                        <Text
-                          style={styles.viewProfile}
-                          onPress={() =>
-                            this.props.navigation.navigate("Profile")
-                          }
-                        >
-                          see profile
-                        </Text>
-                      </Row>
-                    </Grid>
+                    <View>
+                      <Image
+                        style={styles.profileImage}
+                        source={require("./../../static/img/c.jpg")}
+                      />
+                    </View>
+                    <View>
+                      <Text style={styles.studentName}>Aayushi Agarwal</Text>
+                    </View>
+                    <View>
+                      <Text
+                        style={styles.viewProfile}
+                        onPress={() =>
+                          this.props.navigation.navigate("Profile")
+                        }
+                      >
+                        see profile
+                      </Text>
+                    </View>
                   </Body>
                 </CardItem>
               </Card>
-              <Card
-                transparent
-                style={{
-                  paddingLeft: 10,
-                  marginTop: 10,
-                  flex: 1,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start"
-                }}
-              >
-                <Grid>
-                  <Row>
-                    <Button
-                      full
-                      style={{ width: "100%", alignItems: "flex-start" }}
-                      transparent
-                      light
-                      onPress={() => this.props.navigation.navigate("Profile")}
-                    >
-                      <Text style={styles.navLlistItem}> Home</Text>
-                    </Button>
-                  </Row>
-                  <Row>
-                    <Button
-                      full
-                      style={{ width: "100%" }}
-                      transparent
-                      light
-                      onPress={() => this.props.navigation.navigate("Profile")}
-                    >
-                      <Text style={styles.navLlistItem}> Jobs</Text>
-                    </Button>
-                  </Row>
-                  <Row>
-                    <Button
-                      full
-                      style={{ width: "100%" }}
-                      transparent
-                      light
-                      onPress={() => this.props.navigation.navigate("Profile")}
-                    >
-                      <Text style={styles.navLlistItem}> Applied</Text>
-                    </Button>
-                  </Row>
-                </Grid>
+              <Card transparent>
+                <View>
+                  <Button
+                    full
+                    style={styles.navListButton}
+                    transparent
+                    light
+                    onPress={() => this.props.navigation.navigate("Profile")}
+                  >
+                    <Text style={styles.navListItem}> Home</Text>
+                  </Button>
+                </View>
+                <View>
+                  <Button
+                    full
+                    style={styles.navListButton}
+                    transparent
+                    light
+                    onPress={() => this.props.navigation.navigate("Profile")}
+                  >
+                    <Text style={styles.navListItem}> Jobs</Text>
+                  </Button>
+                </View>
+                <View>
+                  <Button
+                    full
+                    style={styles.navListButton}
+                    transparent
+                    light
+                    onPress={() => this.props.navigation.navigate("Profile")}
+                  >
+                    <Text style={styles.navListItem}> Applied</Text>
+                  </Button>
+                </View>
               </Card>
             </View>
-            <View style={{ bottom: 0 }}>
-              <Card transparent style={styles.bottomCard}>
-                <Grid>
-                  <Row style={{ height: 60, padding: 5 }}>
-                    <Button
-                      iconLeft
-                      transparent
-                      primary
-                      style={{ width: "100%" }}
-                      full
-                      light
-                      onPress={() => this.logOut()}
-                    >
-                      <Icon name="log-out" style={{ color: "black" }} />
-                      <Text style={styles.logOut}> Log Out</Text>
-                    </Button>
-                  </Row>
-                  <Row style={{ height: 30, padding: 2 }}>
-                    <Col size={2} style={{ paddingLeft: 15 }}>
-                      <Image
-                        style={styles.logoImage}
-                        source={require("./../../static/img/s.png")}
-                      />
-                    </Col>
-                    <Col size={1} style={{ paddingTop: 10 }}>
+          </View>
+          <View style={{ margin: 0 }}>
+            <Card transparent style={styles.bottomCard}>
+              <View style={{ margin: 0 }}>
+                {/* <View
+                  style={{
+                    height: 50,
+                    paddingLeft: 5
+                  }}
+                >
+                  <Button
+                    iconLeft
+                    transparent
+                    primary
+                    style={styles.logOutBtn}
+                    full
+                    light
+                    onPress={() => this.logOut()}
+                  >
+                    <Icon name="log-out" style={{ color: "black" }} />
+                    <Text style={styles.logOut}> Log Out</Text>
+                  </Button>
+                </View> */}
+                <View
+                  style={{
+                    height: 30,
+                    padding: 2,
+                    flex: 1,
+                    flexDirection: "row",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <View style={{ flex: 1, paddingLeft: 15 }}>
+                    <Image
+                      style={styles.logoImage}
+                      source={require("./../../static/img/s.png")}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      flex: 1,
+                      paddingTop: 5,
+                      marginBottom: 15,
+                      flexDirection: "row",
+                      justifyContent: "space-evenly"
+                    }}
+                  >
+                    <Button transparent light small>
                       <Text style={styles.bottomCardText}>Settings</Text>
-                    </Col>
-                    <Col size={1} style={{ paddingTop: 10 }}>
+                    </Button>
+                    <Button transparent small light style={{}}>
                       <Text style={styles.bottomCardText}>Help</Text>
-                    </Col>
-                  </Row>
-                </Grid>
-              </Card>
-            </View>
+                    </Button>
+                  </View>
+                </View>
+              </View>
+            </Card>
           </View>
         </Content>
       </Container>
@@ -161,22 +171,22 @@ const styles = StyleSheet.create({
   containerClass: {
     flex: 1,
     backgroundColor: "rgb(32,53, 70)",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-around"
-    // alignItems: "center",
-    // alignContent: "center"
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "stretch",
+    padding: 0
   },
-  contentClass: {
+  mainBody: {
     flex: 1,
-    // height: 100,
-    display: "flex",
     flexDirection: "column",
     justifyContent: "space-between"
   },
+  upperCard: {},
+  lowerCard: {},
   profileImage: {
-    height: 100,
-    width: 100,
+    marginTop: 15,
+    height: 80,
+    width: 80,
     marginBottom: 10,
     borderRadius: 50
   },
@@ -188,28 +198,40 @@ const styles = StyleSheet.create({
     borderRadius: 50
   },
   studentName: {
-    fontSize: 25
+    marginTop: 5,
+    fontSize: 18
   },
   viewProfile: {
-    fontSize: 15,
+    fontSize: 12,
     color: "black",
-    marginTop: 5
+    marginTop: 10,
+    marginBottom: 15
   },
-  navLlistItem: {
+  navListItem: {
+    justifyContent: "flex-start",
     fontSize: 15
+  },
+  navListButton: {
+    justifyContent: "flex-start",
+    paddingLeft: 10
   },
   logOut: {
     color: "black"
   },
   bottomCard: {
     backgroundColor: "white",
-    // position: "absolute",
     left: 0,
     right: 0,
+    margin: 0,
     bottom: 0,
-    height: 100
+    height: 40
   },
   bottomCardText: {
-    fontSize: 15
+    fontSize: 10,
+    color: "black"
+  },
+  logOutBtn: {
+    justifyContent: "flex-start",
+    width: "100%"
   }
 });
