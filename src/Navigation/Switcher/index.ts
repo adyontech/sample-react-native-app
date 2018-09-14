@@ -10,13 +10,13 @@ import {
 import { createStackNavigator, createSwitchNavigator } from "react-navigation";
 import { Animated, Easing } from "react-native";
 
-import HomeScreenRouter from "./.././../Navigation/InnerSwitcher/index";
+import MainInnerScreenRouter from "./.././../Navigation/MainInnerSwitcher/index";
 import LoginScreen from "./../../screens/AuthScreens/login/index";
 import ForgotPasswordScreen from "./../../screens/AuthScreens/forgotPassword";
 import AuthLoadingScreen from "./../../screens/AuthLoading/index";
 
 const AppStack = createStackNavigator(
-  { InnerScreens: HomeScreenRouter },
+  { InnerScreens: MainInnerScreenRouter },
   {
     headerMode: "none",
     transitionConfig: () => ({
