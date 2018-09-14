@@ -21,9 +21,10 @@ import {
   Card,
   CardItem
 } from "native-base";
-class NewsView extends React.Component {
+import FeedScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/NewsFeedScreenSwitcher/index";
+class NewsFeedMain extends React.Component {
   render() {
-    return <Title>News view</Title>;
+    return <FeedScreenSwitcher />;
   }
 }
-export default NewsView;
+export default NewsFeedMain;
