@@ -21,7 +21,7 @@ const NewsFeedStack = createStackNavigator(
     },
     NewsView: {
       screen: NewsView,
-      path: "feed/:id"
+      path: "feedId/:id"
     }
   },
   // {

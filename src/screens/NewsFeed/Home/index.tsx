@@ -25,6 +25,12 @@ class NewsHome extends React.Component {
   constructor(props) {
     super(props);
     this.openDrawer = this.openDrawer.bind(this);
+    this._onPressCard = this._onPressCard.bind(this);
+  }
+
+  _onPressCard(id: String) {
+    console.log('llol');
+    this.props.navigation.navigate("NewsView", { feedId: id });
   }
   private allNews = [
     {
@@ -97,7 +103,7 @@ class NewsHome extends React.Component {
                     </Text>
                   </View>
                 </CardItem>
-                <CardItem button onPress={() => alert("This is Card Body")}>
+                <CardItem button onPress={this._onPressCard(news.id)}>
                   <Body>
                     <Text style={{ fontSize: 13 }}>
                       {news.createdBy} ~ {news.createdAt}.
