@@ -27,16 +27,6 @@ class NewsView extends React.Component {
   constructor(props) {
     super(props);
   }
-  // static propTypes = { url: React.PropTypes.string };
-  // handleClick = () => {
-  //   Linking.canOpenURL(this.props.url).then(supported => {
-  //     if (supported) {
-  //       Linking.openURL(this.props.url);
-  //     } else {
-  //       console.log("Don't know how to open URI: " + this.props.url);
-  //     }
-  //   });
-  // };
   render() {
     const { navigation } = this.props;
     const feedId = navigation.getParam("feedId", "NO-ID");
@@ -65,7 +55,7 @@ class NewsView extends React.Component {
             <CardItem header bordered>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text style={{ color: "green", marginTop: 5, marginBottom: 5 }}>
-                  Application Open
+                  Application Open {feedId}
                 </Text>
                 <Text
                   style={{ fontSize: 25, fontWeight: "bold", color: "black" }}

@@ -28,8 +28,8 @@ class NewsHome extends React.Component {
     this._onPressCard = this._onPressCard.bind(this);
   }
 
-  _onPressCard(id: String) {
-    console.log('llol');
+  _onPressCard(id: Number) {
+    console.log("llol");
     this.props.navigation.navigate("NewsView", { feedId: id });
   }
   private allNews = [
@@ -93,7 +93,7 @@ class NewsHome extends React.Component {
                 <CardItem
                   header
                   button
-                  onPress={() => alert("This is Card Header")}
+                  onPress={() => this._onPressCard(news.id)}
                 >
                   <View style={{ flex: 1, flexDirection: "column" }}>
                     <Text style={{ color: "green" }}>{news.type}</Text>
@@ -103,7 +103,7 @@ class NewsHome extends React.Component {
                     </Text>
                   </View>
                 </CardItem>
-                <CardItem button onPress={this._onPressCard(news.id)}>
+                <CardItem button onPress={() => this._onPressCard(news.id)}>
                   <Body>
                     <Text style={{ fontSize: 13 }}>
                       {news.createdBy} ~ {news.createdAt}.
