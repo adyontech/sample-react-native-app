@@ -4,6 +4,9 @@ import MainFeedScreen from "./../../screens/NewsFeed/index";
 import JobsHome from "../../screens/Jobs/Home/index";
 import Profile from "../../screens/Profile/index";
 import SideBar from "./../../components/NavDrawer/index";
+
+import NavigationService from "./../Services/NavigationService";
+
 const HomeScreenRouter = createDrawerNavigator(
   {
     Home: { screen: MainFeedScreen },
@@ -11,7 +14,14 @@ const HomeScreenRouter = createDrawerNavigator(
     Profile: { screen: Profile }
   },
   {
-    contentComponent: props => <SideBar {...props} />
+    contentComponent: props => (
+      <SideBar
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+        {...props}
+      />
+    )
   }
 );
 export default HomeScreenRouter;

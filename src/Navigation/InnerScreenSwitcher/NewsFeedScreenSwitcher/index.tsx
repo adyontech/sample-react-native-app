@@ -24,9 +24,6 @@ const NewsFeedStack = createStackNavigator(
       path: "feedId/:id"
     }
   },
-  // {
-  //   initialRouteName: "MainNewsFeed"
-  // },
   {
     headerMode: "none",
     transitionConfig: () => ({

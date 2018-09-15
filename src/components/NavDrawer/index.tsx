@@ -30,11 +30,6 @@ interface Props extends NavigationInjectedProps {}
 export default class SideBar extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-
-    console.log(props);
-  }
-  logOut() {
-    console.log("logged out");
   }
   render() {
     return (

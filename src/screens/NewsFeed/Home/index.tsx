@@ -21,6 +21,7 @@ import {
   Card,
   CardItem
 } from "native-base";
+import NavigationService from "./../../../Navigation/Services/NavigationService";
 class NewsHome extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,6 @@ class NewsHome extends React.Component {
   }
 
   _onPressCard(id: Number) {
-    console.log("llol");
     this.props.navigation.navigate("NewsView", { feedId: id });
   }
   private allNews = [
@@ -66,9 +66,13 @@ class NewsHome extends React.Component {
       createdAt: "10 hours ago"
     }
   ];
+
   openDrawer() {
-    // console.log(this.props.navigation.navigate);
-    this.props.navigation.openDrawer();
+    // console.log("this.props.navigation");
+    // this.props.navigation.navigate("DrawerOpen");
+    // console.log(this.props.navigation.navigate("DrawerOpen"));
+    // // this.props.navigation.openDrawer();
+    NavigationService.openDrawer();
   }
   typeColor() {
     return <Text>asdasd</Text>;
