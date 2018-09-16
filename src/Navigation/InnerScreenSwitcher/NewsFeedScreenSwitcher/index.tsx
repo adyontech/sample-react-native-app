@@ -13,7 +13,7 @@ import { Animated, Easing } from "react-native";
 import MainNewsFeed from "./../../../screens/NewsFeed/Home";
 import NewsView from "./../../../screens/NewsFeed/NewsView";
 
-const NewsFeedStack = createStackNavigator(
+export default createStackNavigator(
   {
     MainNewsFeed: {
       screen: MainNewsFeed,
@@ -35,21 +35,21 @@ const NewsFeedStack = createStackNavigator(
     })
   }
 );
-export default createSwitchNavigator(
-  {
-    NewsFeedStack
-  },
-  {
-    initialRouteName: "NewsFeedStack"
-  },
-  {
-    headerMode: "none",
-    transitionConfig: () => ({
-      transitionSpec: {
-        duration: 0,
-        timing: Animated.timing,
-        easing: Easing.step0
-      }
-    })
-  }
-);
+// export default createSwitchNavigator(
+//   {
+//     NewsFeedStack
+//   },
+//   {
+//     initialRouteName: "NewsFeedStack"
+//   },
+//   {
+//     headerMode: "none",
+//     transitionConfig: () => ({
+//       transitionSpec: {
+//         duration: 0,
+//         timing: Animated.timing,
+//         easing: Easing.step0
+//       }
+//     })
+//   }
+// );
