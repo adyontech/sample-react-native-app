@@ -21,13 +21,13 @@ import {
   Card,
   CardItem
 } from "native-base";
-import JobScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/JobsScreenSwitcher/index";
+import HelpScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/HeplScreenSwitcher/index";
 class NewsFeedMain extends React.Component {
   changeHandler() {
     console.log("open");
   }
   render() {
-    return <JobScreenSwitcher handleClick={this.changeHandler} />;
+    return <HelpScreenSwitcher handleClick={this.changeHandler} />;
   }
 }
 export default NewsFeedMain;
