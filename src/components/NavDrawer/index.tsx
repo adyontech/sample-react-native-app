@@ -69,7 +69,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("Home")}
                   >
                     <Text style={styles.navListItem}> Home</Text>
                   </Button>
@@ -80,7 +80,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("JobsHome")}
                   >
                     <Text style={styles.navListItem}> Jobs</Text>
                   </Button>
