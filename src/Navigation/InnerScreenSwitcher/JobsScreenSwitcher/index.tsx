@@ -40,7 +40,7 @@ export default createSwitchNavigator(
     MainJobFeed
   },
   {
-    initialRouteName: "NewsFeedStack"
+    initialRouteName: "MainJobFeed"
   },
   {
     headerMode: "none",

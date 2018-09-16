@@ -91,7 +91,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("Applied")}
                   >
                     <Text style={styles.navListItem}> Applied</Text>
                   </Button>
@@ -145,11 +145,23 @@ export default class SideBar extends React.Component<Props> {
                       justifyContent: "space-evenly"
                     }}
                   >
-                    <Button transparent light small>
+                    <Button
+                      transparent
+                      light
+                      small
+                      onPress={() =>
+                        this.props.navigation.navigate("UserSettings")
+                      }
+                    >
                       <Text style={styles.bottomCardText}>Settings</Text>
                     </Button>
                     <Button transparent small light style={{}}>
-                      <Text style={styles.bottomCardText}>Help</Text>
+                      <Text
+                        style={styles.bottomCardText}
+                        onPress={() => this.props.navigation.navigate("Help")}
+                      >
+                        Help
+                      </Text>
                     </Button>
                   </View>
                 </View>
