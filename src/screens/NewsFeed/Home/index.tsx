@@ -68,10 +68,6 @@ class NewsHome extends React.Component {
   ];
 
   openDrawer() {
-    // console.log("this.props.navigation");
-    // this.props.navigation.navigate("DrawerOpen");
-    // console.log(this.props.navigation.navigate("DrawerOpen"));
-    // // this.props.navigation.openDrawer();
     NavigationService.openDrawer();
   }
   typeColor() {
@@ -107,7 +103,7 @@ class NewsHome extends React.Component {
                     </Text>
                   </View>
                 </CardItem>
-                <CardItem button onPress={() => this._onPressCard(news.id)}>
+                <CardItem button>
                   <Body>
                     <Text style={{ fontSize: 13 }}>
                       {news.createdBy} ~ {news.createdAt}.

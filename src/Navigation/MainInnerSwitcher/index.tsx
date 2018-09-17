@@ -12,8 +12,8 @@ import NavigationService from "./../Services/NavigationService";
 
 const HomeScreenRouter = createDrawerNavigator(
   {
-    Home: { screen: MainFeedScreen },
     JobsHome: { screen: JobsHome },
+    Home: { screen: MainFeedScreen },
     Profile: { screen: Profile },
     Applied: { screen: Applied },
     UserSettings: { screen: UserSettings },

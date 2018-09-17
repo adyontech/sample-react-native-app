@@ -23,11 +23,9 @@ import {
 } from "native-base";
 import FeedScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/NewsFeedScreenSwitcher/index";
 class NewsFeedMain extends React.Component {
-  changeHandler() {
-    console.log("open");
-  }
+ 
   render() {
-    return <FeedScreenSwitcher handleClick={this.changeHandler} />;
+    return <FeedScreenSwitcher/>;
   }
 }
 export default NewsFeedMain;

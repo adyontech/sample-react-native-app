@@ -23,11 +23,8 @@ import {
 } from "native-base";
 import JobScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/JobsScreenSwitcher/index";
 class NewsFeedMain extends React.Component {
-  changeHandler() {
-    console.log("open");
-  }
   render() {
-    return <JobScreenSwitcher handleClick={this.changeHandler} />;
+    return <JobScreenSwitcher />;
   }
 }
 export default NewsFeedMain;
