@@ -102,14 +102,19 @@ export default class JobsHome extends Component {
         <Header style={{ backgroundColor: "rgb(32,53, 70)" }} searchBar rounded>
           <Item>
             <Icon name="ios-search" />
-            <Input placeholder="Search" onFocus={this.openFilterBox} />
-            <Icon name="ios-people" />
+            <Input
+              placeholder="Search"
+              onFocus={this.openFilterBox}
+              onBlur={this.closeFilterBox}
+            />
+            <Icon name="chevron-right" />
           </Item>
         </Header>
-        {this.state.showFilterBox ? (
+        {this.state.showFilterBox && (
           <View
             style={{
               flex: 1,
+              height: 10,
               flexDirection: "row",
               justifyContent: "space-between",
               paddingHorizontal: 15,
@@ -117,7 +122,7 @@ export default class JobsHome extends Component {
             }}
           >
             <Button transparent onPress={this.closeFilterBox}>
-              <Text style={{ color: "white" }}>Close</Text>
+              <Text style={{ color: "white" }}>Reset</Text>
             </Button>
             <Button transparent>
               <Text style={{ color: "white" }}>Filters</Text>
@@ -126,7 +131,7 @@ export default class JobsHome extends Component {
               <Text style={{ color: "white" }}>Search</Text>
             </Button>
           </View>
-        ) : null}
+        )}
         <Content padder>
           {this.allNews.map(news => {
             return (
