@@ -27,15 +27,22 @@ import NavigationService from "./../../../Navigation/Services/NavigationService"
 export default class JobsHome extends Component {
   constructor(props) {
     super(props);
-    this.toggleFilterBox = this.toggleFilterBox.bind(this);
+    this.openDrawer = this.openDrawer.bind(this);
+    this.openFilterBox = this.openFilterBox.bind(this);
+    this.closeFilterBox = this.closeFilterBox.bind(this);
     this.state = {
       showFilterBox: false
     };
   }
 
-  toggleFilterBox = () => {
+  openFilterBox = () => {
     this.setState({
-      showFilterBox: !this.state.showFilterBox
+      showFilterBox: true
+    });
+  };
+  closeFilterBox = () => {
+    this.setState({
+      showFilterBox: false
     });
   };
 
@@ -95,7 +102,7 @@ export default class JobsHome extends Component {
         <Header style={{ backgroundColor: "rgb(32,53, 70)" }} searchBar rounded>
           <Item>
             <Icon name="ios-search" />
-            <Input placeholder="Search" onFocus={this.toggleFilterBox} />
+            <Input placeholder="Search" onFocus={this.openFilterBox} />
             <Icon name="ios-people" />
           </Item>
         </Header>
@@ -104,10 +111,14 @@ export default class JobsHome extends Component {
             style={{
               flex: 1,
               flexDirection: "row",
-              alignContent: "space-between",
+              justifyContent: "space-between",
+              paddingHorizontal: 15,
               backgroundColor: "rgb(32,53, 70)"
             }}
           >
+            <Button transparent onPress={this.closeFilterBox}>
+              <Text style={{ color: "white" }}>Close</Text>
+            </Button>
             <Button transparent>
               <Text style={{ color: "white" }}>Filters</Text>
             </Button>
