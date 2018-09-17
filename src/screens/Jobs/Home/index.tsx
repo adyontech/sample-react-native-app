@@ -49,35 +49,106 @@ export default class JobsHome extends Component {
   private allNews = [
     {
       id: 1,
-      type: "Application open",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      status: "Process going on",
+      nameOfCompany: "TCS",
       createdBy: "Shawn Majoski",
-      createdAt: "2 hours ago"
+      createdAt: "2 hours ago",
+      jobsOffered: [
+        {
+          title: "jobTitle 1",
+          id: "linkId"
+        },
+        {
+          title: "jobTitle 1",
+          id: "1"
+        },
+        {
+          title: "jobTitle 2",
+          id: "2"
+        },
+        {
+          title: "jobTitle 3",
+          id: "3"
+        }
+      ]
     },
     {
       id: 2,
-      type: "General Info",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      status: "Completed",
+      nameOfCompany:
+        "longest company name award goes to this company longest company name award goes to this company",
       createdBy: "paul Majoski",
-      createdAt: "4 hours ago"
+      createdAt: "4 hours ago",
+      jobsOffered: [
+        {
+          title: "jobTitle 1",
+          id: "linkId"
+        },
+        {
+          title: "jobTitle 1",
+          id: "1"
+        },
+        {
+          title: "jobTitle 2",
+          id: "2"
+        },
+        {
+          title: "jobTitle 3",
+          id: "3"
+        }
+      ]
     },
     {
       id: 3,
-      type: "Urgent Info",
-      news:
+      status: "Will start",
+      nameOfCompany:
         "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
       createdBy: "Amin walker",
-      createdAt: "5 hours ago"
+      createdAt: "5 hours ago",
+      jobsOffered: [
+        {
+          title: "jobTitle 1",
+          id: "linkId"
+        },
+        {
+          title: "jobTitle 1",
+          id: "1"
+        },
+        {
+          title: "jobTitle 2",
+          id: "2"
+        },
+        {
+          title: "jobTitle 3",
+          id: "3"
+        }
+      ]
     },
     {
       id: 4,
-      type: "Geeral Info",
-      news:
+      status: "Goinng on",
+      nameOfCompany:
         "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
       createdBy: "Rise Matheli",
-      createdAt: "10 hours ago"
+      createdAt: "10 hours ago",
+      jobsOffered: [
+        {
+          title: "jobTitle 1",
+          id: "linkId"
+        },
+        {
+          title: "jobTitle 1",
+          id: "1"
+        },
+        {
+          title: "jobTitle 2",
+          id: "2"
+        },
+        {
+          title: "jobTitle 3",
+          id: "3"
+        }
+      ]
     }
   ];
   openDrawer() {
@@ -107,7 +178,7 @@ export default class JobsHome extends Component {
               onFocus={this.openFilterBox}
               onBlur={this.closeFilterBox}
             />
-            <Icon name="chevron-right" />
+            <Icon name="Search" />
           </Item>
         </Header>
         {this.state.showFilterBox && (
@@ -133,29 +204,30 @@ export default class JobsHome extends Component {
           </View>
         )}
         <Content padder>
-          {this.allNews.map(news => {
+          {this.allNews.map(jobs => {
             return (
-              <Card key={news.id}>
+              <Card key={jobs.id}>
                 <CardItem
                   header
                   button
-                  onPress={() => this._onPressCard(news.id)}
+                  onPress={() => this._onPressCard(jobs.id)}
                 >
                   <View style={{ flex: 1, flexDirection: "column" }}>
-                    <Text style={{ color: "green" }}>{news.type}</Text>
+                    <Text style={{ color: "green" }}>{jobs.status}</Text>
 
                     <Text style={{ color: "black", marginTop: 5 }}>
-                      {news.news}
+                      {jobs.nameOfCompany}
                     </Text>
                   </View>
                 </CardItem>
-                <CardItem button>
-                  <Body>
-                    <Text style={{ fontSize: 13 }}>
-                      {news.createdBy} ~ {news.createdAt}.
-                    </Text>
-                  </Body>
-                </CardItem>
+                {jobs.jobsOffered.map(jobName => {
+                  
+                  <CardItem button>
+                    <Body>
+                      <Text style={{ fontSize: 13 }}>{jobName.title}</Text>
+                    </Body>
+                  </CardItem>;
+                })}
               </Card>
             );
           })}
