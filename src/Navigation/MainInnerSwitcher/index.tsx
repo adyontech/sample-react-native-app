@@ -7,17 +7,19 @@ import Profile from "../../screens/Profile/index";
 import Applied from "../../screens/Applied/index";
 import UserSettings from "../../screens/UserSetting/index";
 import Help from "../../screens/Help/index";
+import Notifications from "../../screens/Notifications/index";
 
 import NavigationService from "./../Services/NavigationService";
 
 const HomeScreenRouter = createDrawerNavigator(
   {
-    JobsHome: { screen: JobsHome },
     Home: { screen: MainFeedScreen },
+    JobsHome: { screen: JobsHome },
     Profile: { screen: Profile },
     Applied: { screen: Applied },
     UserSettings: { screen: UserSettings },
-    Help: { screen: Help }
+    Help: { screen: Help },
+    Notifications: { screen: Notifications }
   },
   {
     contentComponent: props => (

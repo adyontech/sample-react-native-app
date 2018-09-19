@@ -38,7 +38,6 @@ export default class JobsHome extends Component {
       showFilterBox: false
     };
   }
-
   openFilterBox = () => {
     this.setState({
       showFilterBox: true
@@ -174,7 +173,12 @@ export default class JobsHome extends Component {
   }
   _onPressJobName(id: String) {
     console.log(id);
-    this.props.navigation.navigate("JobsScreen");
+    const NavigationActions = this.props.navigation;
+    this.props.navigation.navigate("JobsScreen", { jobId: id });
+    // NavigationActions.navigate({
+    // routeName: 'JobsHome',
+    // action: NavigationActions.navigate({ routeName: 'JobsScreen' }),
+    // }),
   }
   render() {
     return (
