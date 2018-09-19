@@ -30,11 +30,6 @@ interface Props extends NavigationInjectedProps {}
 export default class SideBar extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-
-    console.log(props);
-  }
-  logOut() {
-    console.log("logged out");
   }
   render() {
     return (
@@ -48,11 +43,11 @@ export default class SideBar extends React.Component<Props> {
                     <View>
                       <Image
                         style={styles.profileImage}
-                        source={require("./../../static/img/c.jpg")}
+                        source={require("./../../static/img/rnicon.png")}
                       />
                     </View>
                     <View>
-                      <Text style={styles.studentName}>Aayushi Agarwal</Text>
+                      <Text style={styles.studentName}>Aditya sharma</Text>
                     </View>
                     <View>
                       <Text
@@ -74,7 +69,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("Home")}
                   >
                     <Text style={styles.navListItem}> Home</Text>
                   </Button>
@@ -85,7 +80,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("JobsHome")}
                   >
                     <Text style={styles.navListItem}> Jobs</Text>
                   </Button>
@@ -96,7 +91,7 @@ export default class SideBar extends React.Component<Props> {
                     style={styles.navListButton}
                     transparent
                     light
-                    onPress={() => this.props.navigation.navigate("Profile")}
+                    onPress={() => this.props.navigation.navigate("Applied")}
                   >
                     <Text style={styles.navListItem}> Applied</Text>
                   </Button>
@@ -150,11 +145,23 @@ export default class SideBar extends React.Component<Props> {
                       justifyContent: "space-evenly"
                     }}
                   >
-                    <Button transparent light small>
+                    <Button
+                      transparent
+                      light
+                      small
+                      onPress={() =>
+                        this.props.navigation.navigate("UserSettings")
+                      }
+                    >
                       <Text style={styles.bottomCardText}>Settings</Text>
                     </Button>
                     <Button transparent small light style={{}}>
-                      <Text style={styles.bottomCardText}>Help</Text>
+                      <Text
+                        style={styles.bottomCardText}
+                        onPress={() => this.props.navigation.navigate("Help")}
+                      >
+                        Help
+                      </Text>
                     </Button>
                   </View>
                 </View>

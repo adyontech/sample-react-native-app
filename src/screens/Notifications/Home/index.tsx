@@ -26,7 +26,6 @@ class NewsHome extends React.Component {
   constructor(props) {
     super(props);
     this.openDrawer = this.openDrawer.bind(this);
-    this.openNotification = this.openNotification.bind(this);
     this._onPressCard = this._onPressCard.bind(this);
   }
 
@@ -71,10 +70,6 @@ class NewsHome extends React.Component {
   openDrawer() {
     NavigationService.openDrawer();
   }
-  openNotification() {
-    console.log("openning notifs");
-    this.props.navigation.navigate("NotificationsMain");
-  }
   render() {
     return (
       <Container>
@@ -87,11 +82,6 @@ class NewsHome extends React.Component {
           <Body>
             <Title>Welcome</Title>
           </Body>
-          <Right>
-            <Button transparent onPress={this.openNotification}>
-              <Icon name="menu" />
-            </Button>
-          </Right>
         </Header>
         <Content padder>
           {this.allNews.map(news => {

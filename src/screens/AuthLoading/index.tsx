@@ -7,7 +7,7 @@ import {
   StyleSheet,
   View
 } from "react-native";
-import { createStackNavigator, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 import { Text } from "native-base";
 
 export default class AuthLoadingScreen extends React.Component {
@@ -20,7 +20,6 @@ export default class AuthLoadingScreen extends React.Component {
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem("userToken");
     this.props.navigation.navigate(userToken ? "Auth" : "App");
-    console.log(userToken);
   };
 
   render() {

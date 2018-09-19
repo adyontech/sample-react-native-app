@@ -54,12 +54,12 @@ export default class Profile extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>Header</Title>
+            <Title>Profile</Title>
           </Body>
           <Right />
         </Header>
         <Content>
-          <Text>This is Content Section</Text>
+          <Text>This is profile Section</Text>
         </Content>
       </Container>
     );
