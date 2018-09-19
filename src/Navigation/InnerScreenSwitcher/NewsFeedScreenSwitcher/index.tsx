@@ -7,7 +7,7 @@ import {
   StyleSheet,
   View
 } from "react-native";
-import { createStackNavigator, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 import { Animated, Easing } from "react-native";
 
 import MainNewsFeed from "./../../../screens/NewsFeed/Home";

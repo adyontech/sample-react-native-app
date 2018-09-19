@@ -174,7 +174,7 @@ export default class JobsHome extends Component {
   }
   _onPressJobName(id: String) {
     console.log(id);
-    this.props.navigation.navigate("JobsView", { jobId: id });
+    this.props.navigation.navigate("JobsScreen");
   }
   render() {
     return (

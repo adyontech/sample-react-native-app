@@ -7,7 +7,7 @@ import {
   StyleSheet,
   View
 } from "react-native";
-import { createStackNavigator, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 import { Animated, Easing } from "react-native";
 
 import MainJobFeed from "./../../../screens/Jobs/Home";
@@ -15,11 +15,11 @@ import JobsView from "./../../../screens/Jobs/JobsView";
 
 export default createStackNavigator(
   {
-    MainNewsFeed: {
+    MainJobFeed: {
       screen: MainJobFeed,
-      path: "feed"
+      path: "jobs"
     },
-    JobsView: {
+    JobsScreen: {
       screen: JobsView,
       path: "jobId/:id"
     }

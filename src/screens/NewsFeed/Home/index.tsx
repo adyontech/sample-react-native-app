@@ -70,9 +70,6 @@ class NewsHome extends React.Component {
   openDrawer() {
     NavigationService.openDrawer();
   }
-  typeColor() {
-    return <Text>asdasd</Text>;
-  }
   render() {
     return (
       <Container>

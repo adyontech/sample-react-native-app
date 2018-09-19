@@ -22,9 +22,9 @@ import {
   CardItem
 } from "native-base";
 import JobScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/JobsScreenSwitcher/index";
-class NewsFeedMain extends React.Component {
+class JobFeedMain extends React.Component {
   render() {
     return <JobScreenSwitcher />;
   }
 }
-export default NewsFeedMain;
+export default JobFeedMain;

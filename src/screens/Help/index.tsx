@@ -22,7 +22,7 @@ import {
   CardItem
 } from "native-base";
 import HelpScreenSwitcher from "./../../Navigation/InnerScreenSwitcher/HeplScreenSwitcher/index";
-class NewsFeedMain extends React.Component {
+class HelpMain extends React.Component {
   changeHandler() {
     console.log("open");
   }
@@ -30,4 +30,4 @@ class NewsFeedMain extends React.Component {
     return <HelpScreenSwitcher handleClick={this.changeHandler} />;
   }
 }
-export default NewsFeedMain;
+export default HelpMain;
