@@ -19,7 +19,7 @@ export default createStackNavigator(
       screen: MainJobFeed,
       path: "feed"
     },
-    NewsView: {
+    JobsView: {
       screen: JobsView,
       path: "jobId/:id"
     }

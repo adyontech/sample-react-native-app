@@ -5,6 +5,7 @@ import {
   StatusBar,
   ImageBackground,
   StyleSheet,
+  TouchableOpacity,
   View
 } from "react-native";
 import {
@@ -21,7 +22,9 @@ import {
   Card,
   Item,
   Input,
-  CardItem
+  CardItem,
+  ListItem,
+  List
 } from "native-base";
 import NavigationService from "./../../../Navigation/Services/NavigationService";
 export default class JobsHome extends Component {
@@ -30,6 +33,7 @@ export default class JobsHome extends Component {
     this.openDrawer = this.openDrawer.bind(this);
     this.openFilterBox = this.openFilterBox.bind(this);
     this.closeFilterBox = this.closeFilterBox.bind(this);
+    this._onPressJobName = this._onPressJobName.bind(this);
     this.state = {
       showFilterBox: false
     };
@@ -56,19 +60,23 @@ export default class JobsHome extends Component {
       jobsOffered: [
         {
           title: "jobTitle 1",
-          id: "linkId"
+          id: "0",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 1",
-          id: "1"
+          id: "1",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 2",
-          id: "2"
+          id: "2",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 3",
-          id: "3"
+          id: "3",
+          allowed: "Applicable"
         }
       ]
     },
@@ -82,71 +90,81 @@ export default class JobsHome extends Component {
       jobsOffered: [
         {
           title: "jobTitle 1",
-          id: "linkId"
+          id: "0",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 1",
-          id: "1"
+          id: "1",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 2",
-          id: "2"
+          id: "2",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 3",
-          id: "3"
+          id: "3",
+          allowed: "Applicable"
         }
       ]
     },
     {
       id: 3,
       status: "Will start",
-      nameOfCompany:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      nameOfCompany: "Infosys",
       createdBy: "Amin walker",
       createdAt: "5 hours ago",
       jobsOffered: [
         {
           title: "jobTitle 1",
-          id: "linkId"
+          id: "0",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 1",
-          id: "1"
+          id: "1",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 2",
-          id: "2"
+          id: "2",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 3",
-          id: "3"
+          id: "3",
+          allowed: "Applicable"
         }
       ]
     },
     {
       id: 4,
       status: "Goinng on",
-      nameOfCompany:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      nameOfCompany: "Wipro",
       createdBy: "Rise Matheli",
       createdAt: "10 hours ago",
       jobsOffered: [
         {
           title: "jobTitle 1",
-          id: "linkId"
+          id: "0",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 1",
-          id: "1"
+          id: "1",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 2",
-          id: "2"
+          id: "2",
+          allowed: "Applicable"
         },
         {
           title: "jobTitle 3",
-          id: "3"
+          id: "3",
+          allowed: "Applicable"
         }
       ]
     }
@@ -154,8 +172,9 @@ export default class JobsHome extends Component {
   openDrawer() {
     NavigationService.openDrawer();
   }
-  _onPressCard(id: Number) {
-    this.props.navigation.navigate("NewsView", { feedId: id });
+  _onPressJobName(id: String) {
+    console.log(id);
+    this.props.navigation.navigate("JobsView", { jobId: id });
   }
   render() {
     return (
@@ -178,7 +197,7 @@ export default class JobsHome extends Component {
               onFocus={this.openFilterBox}
               onBlur={this.closeFilterBox}
             />
-            <Icon name="Search" />
+            <Icon name="ios-search" />
           </Item>
         </Header>
         {this.state.showFilterBox && (
@@ -207,11 +226,7 @@ export default class JobsHome extends Component {
           {this.allNews.map(jobs => {
             return (
               <Card key={jobs.id}>
-                <CardItem
-                  header
-                  button
-                  onPress={() => this._onPressCard(jobs.id)}
-                >
+                <CardItem header button>
                   <View style={{ flex: 1, flexDirection: "column" }}>
                     <Text style={{ color: "green" }}>{jobs.status}</Text>
 
@@ -220,14 +235,44 @@ export default class JobsHome extends Component {
                     </Text>
                   </View>
                 </CardItem>
-                {jobs.jobsOffered.map(jobName => {
-                  
-                  <CardItem button>
-                    <Body>
-                      <Text style={{ fontSize: 13 }}>{jobName.title}</Text>
-                    </Body>
-                  </CardItem>;
-                })}
+                <List>
+                  {jobs.jobsOffered.map(jobName => {
+                    return (
+                      <ListItem noIndent key={jobName.id}>
+                        <TouchableOpacity
+                          style={{
+                            paddingHorizontal: 10,
+                            backgroundColor: "red",
+                            flex: 1,
+                            flexDirection: "row",
+                            justifyContent: "space-between"
+                          }}
+                          onPress={() => this._onPressJobName(jobName.id)}
+                        >
+                          <Body
+                            style={{
+                              height: 30,
+                              paddingTop: 5,
+                              paddingHorizontal: 10,
+                              backgroundColor: "red",
+                              flex: 1,
+                              flexDirection: "row",
+                              justifyContent: "space-between"
+                            }}
+                          >
+                            <Text style={{ fontSize: 13 }}>
+                              {jobName.title}
+                            </Text>
+                            <Text style={{ fontSize: 13, color: "green" }}>
+                              {jobName.allowed}
+                            </Text>
+                            {/* <Right><Text> <Icon name="search" onPress={() => this._onPressJobName(jobName.id)}/></Text> </Right> */}
+                          </Body>
+                        </TouchableOpacity>
+                      </ListItem>
+                    );
+                  })}
+                </List>
               </Card>
             );
           })}
