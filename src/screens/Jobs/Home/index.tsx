@@ -88,7 +88,8 @@ export default class JobsHome extends Component {
       createdAt: "4 hours ago",
       jobsOffered: [
         {
-          title: "jobTitle 1",
+          title:
+            "jobTitle 1 I could be as long as I want because no one can stop the power of a mass rec, I am the king and you are the slave. hahahahhahahahahaha",
           id: "0",
           allowed: "Applicable"
         },
@@ -232,9 +233,13 @@ export default class JobsHome extends Component {
               <Card key={jobs.id}>
                 <CardItem header button>
                   <View style={{ flex: 1, flexDirection: "column" }}>
-                    <Text style={{ color: "green" }}>{jobs.status}</Text>
+                    <Text style={{ color: "grey", fontSize: 13 }}>
+                      {jobs.status}
+                    </Text>
 
-                    <Text style={{ color: "black", marginTop: 5 }}>
+                    <Text
+                      style={{ color: "black", marginTop: 5, fontSize: 25 }}
+                    >
                       {jobs.nameOfCompany}
                     </Text>
                   </View>
@@ -242,11 +247,20 @@ export default class JobsHome extends Component {
                 <List>
                   {jobs.jobsOffered.map(jobName => {
                     return (
-                      <ListItem noIndent key={jobName.id}>
+                      <ListItem
+                        noIndent
+                        key={jobName.id}
+                        style={{
+                          paddingLeft: 0,
+                          paddingRight: 0,
+                          paddingTop: 5,
+                          paddingBottom: 5
+                        }}
+                      >
                         <TouchableOpacity
                           style={{
                             paddingHorizontal: 10,
-                            backgroundColor: "red",
+                            margin: 0,
                             flex: 1,
                             flexDirection: "row",
                             justifyContent: "space-between"
@@ -255,19 +269,20 @@ export default class JobsHome extends Component {
                         >
                           <Body
                             style={{
-                              height: 30,
+                              // height: 30,
                               paddingTop: 5,
                               paddingHorizontal: 10,
-                              backgroundColor: "red",
                               flex: 1,
-                              flexDirection: "row",
+                              flexDirection: "column",
                               justifyContent: "space-between"
                             }}
                           >
-                            <Text style={{ fontSize: 13 }}>
+                            <Text style={{ flex: 1, fontSize: 18 }}>
                               {jobName.title}
                             </Text>
-                            <Text style={{ fontSize: 13, color: "green" }}>
+                            <Text
+                              style={{ flex: 1, fontSize: 13, color: "green" }}
+                            >
                               {jobName.allowed}
                             </Text>
                             {/* <Right><Text> <Icon name="search" onPress={() => this._onPressJobName(jobName.id)}/></Text> </Right> */}

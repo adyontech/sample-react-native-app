@@ -14,7 +14,7 @@ import {
   CardItem
 } from "native-base";
 
-export default class JobsHome extends Component {
+export default class MessageHome extends Component {
   render() {
     return <Text>Message</Text>;
   }

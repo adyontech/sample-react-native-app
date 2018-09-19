@@ -43,11 +43,11 @@ export default class SideBar extends React.Component<Props> {
                     <View>
                       <Image
                         style={styles.profileImage}
-                        source={require("./../../static/img/c.jpg")}
+                        source={require("./../../static/img/rnicon.png")}
                       />
                     </View>
                     <View>
-                      <Text style={styles.studentName}>Aayushi Agarwal</Text>
+                      <Text style={styles.studentName}>Aditya sharma</Text>
                     </View>
                     <View>
                       <Text
