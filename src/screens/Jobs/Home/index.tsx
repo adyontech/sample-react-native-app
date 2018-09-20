@@ -24,7 +24,8 @@ import {
   Input,
   CardItem,
   ListItem,
-  List
+  List,
+  Thumbnail
 } from "native-base";
 import NavigationService from "./../../../Navigation/Services/NavigationService";
 export default class JobsHome extends Component {
@@ -65,17 +66,17 @@ export default class JobsHome extends Component {
         {
           title: "jobTitle 1",
           id: "1",
-          allowed: "Applicable"
+          allowed: "Applied"
         },
         {
           title: "jobTitle 2",
           id: "2",
-          allowed: "Applicable"
+          allowed: "Not Applicable"
         },
         {
           title: "jobTitle 3",
           id: "3",
-          allowed: "Applicable"
+          allowed: "Don't waste your time."
         }
       ]
     },
@@ -217,7 +218,7 @@ export default class JobsHome extends Component {
             }}
           >
             <Button transparent onPress={this.closeFilterBox}>
-              <Text style={{ color: "white" }}>Reset</Text>
+              <Text style={{ color: "white" }}>Close</Text>
             </Button>
             <Button transparent>
               <Text style={{ color: "white" }}>Filters</Text>
@@ -233,30 +234,48 @@ export default class JobsHome extends Component {
               <Card key={jobs.id}>
                 <CardItem header button style={{ paddingBottom: 15 }}>
                   <View style={{ flex: 1, flexDirection: "column" }}>
-                    <Text style={{ color: "grey", fontSize: 13 }}>
+                    <Text style={{ color: "green", fontSize: 13 }}>
                       {jobs.status}
                     </Text>
+                    <Content>
+                      <List>
+                        <ListItem thumbnail>
+                          <Left>
+                            {/* <Text>img</Text> */}
+                            <Thumbnail
+                              square
+                              source={{
+                                uri:
+                                  "https://facebook.github.io/react-native/docs/assets/favicon.png"
+                              }}
+                            />
+                          </Left>
+                          <Body>
+                            <Text>{jobs.nameOfCompany}</Text>
+                            <Text note numberOfLines={1}>
+                              Its time to build a difference . .
+                            </Text>
+                          </Body>
+                          <Right>
+                            <Button transparent>
+                              <Text>View</Text>
+                            </Button>
+                          </Right>
+                        </ListItem>
+                      </List>
+                    </Content>
 
-                    <Text
+                    {/* <Text
                       style={{ color: "black", marginTop: 5, fontSize: 25 }}
                     >
                       {jobs.nameOfCompany}
-                    </Text>
+                    </Text> */}
                   </View>
                 </CardItem>
                 <List>
                   {jobs.jobsOffered.map(jobName => {
                     return (
-                      <ListItem
-                        noIndent
-                        key={jobName.id}
-                        style={{
-                          paddingLeft: 0,
-                          paddingRight: 0,
-                          paddingTop: 5,
-                          paddingBottom: 5
-                        }}
-                      >
+                      <ListItem key={jobName.id}>
                         <TouchableOpacity
                           style={{
                             paddingHorizontal: 10,
@@ -267,26 +286,13 @@ export default class JobsHome extends Component {
                           }}
                           onPress={() => this._onPressJobName(jobName.id)}
                         >
-                          <Body
-                            style={{
-                              // height: 30,
-                              paddingTop: 5,
-                              paddingHorizontal: 10,
-                              flex: 1,
-                              flexDirection: "column",
-                              justifyContent: "space-between"
-                            }}
-                          >
-                            <Text style={{ flex: 1, fontSize: 18 }}>
-                              {jobName.title}
-                            </Text>
-                            <Text
-                              style={{ flex: 1, fontSize: 13, color: "green" }}
-                            >
-                              {jobName.allowed}
-                            </Text>
-                            {/* <Right><Text> <Icon name="search" onPress={() => this._onPressJobName(jobName.id)}/></Text> </Right> */}
+                          <Body>
+                            <Text>{jobName.title}</Text>
+                            <Text note>{jobName.allowed}</Text>
                           </Body>
+                          <Right>
+                            <Text style={{ color: "blue" }}>Check</Text>
+                          </Right>
                         </TouchableOpacity>
                       </ListItem>
                     );

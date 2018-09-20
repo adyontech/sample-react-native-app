@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   AppRegistry,
   Image,
   StatusBar,
   ImageBackground,
   StyleSheet,
+  TouchableOpacity,
   View
 } from "react-native";
 import {
@@ -19,61 +20,98 @@ import {
   Content,
   Text,
   Card,
-  CardItem
+  Item,
+  Input,
+  CardItem,
+  ListItem,
+  List,
+  Thumbnail
 } from "native-base";
 import NavigationService from "./../../../Navigation/Services/NavigationService";
 class NewsHome extends React.Component {
   constructor(props) {
     super(props);
     this.openDrawer = this.openDrawer.bind(this);
-    this.openNotification = this.openNotification.bind(this);
-    this._onPressCard = this._onPressCard.bind(this);
+    this.openFilterBox = this.openFilterBox.bind(this);
+    this.closeFilterBox = this.closeFilterBox.bind(this);
+    this._onPressJobName = this._onPressJobName.bind(this);
+    this.state = {
+      showFilterBox: false
+    };
   }
+  openFilterBox = () => {
+    this.setState({
+      showFilterBox: true
+    });
+  };
+  closeFilterBox = () => {
+    this.setState({
+      showFilterBox: false
+    });
+  };
 
-  _onPressCard(id: Number) {
-    this.props.navigation.navigate("NewsView", { feedId: id });
-  }
   private allNews = [
     {
       id: 1,
-      type: "Application open",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
-      createdBy: "brian Majoski",
-      createdAt: "2 hours ago"
+      status: "Selected",
+      nameOfCompany: "TCS",
+      createdBy: "Shawn Majoski",
+      createdAt: "2 hours ago",
+      jobsOffered: {
+        title: "Web designer",
+        id: "0",
+        allowed: "Applicable"
+      }
     },
     {
       id: 2,
-      type: "General Info",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      status: "Round-2",
+      nameOfCompany:
+        "longest company name award goes to this company longest company name award goes to this company",
       createdBy: "paul Majoski",
-      createdAt: "4 hours ago"
+      createdAt: "4 hours ago",
+      jobsOffered: {
+        title: "CTO of company",
+        id: "0",
+        allowed: "Applicable"
+      }
     },
     {
       id: 3,
-      type: "Urgent Info",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      status: "Group desciosion",
+      nameOfCompany: "Infosys",
       createdBy: "Amin walker",
-      createdAt: "5 hours ago"
+      createdAt: "5 hours ago",
+      jobsOffered: {
+        title: "Marketing head",
+        id: "0",
+        allowed: "Applicable"
+      }
     },
     {
       id: 4,
-      type: "Geeral Info",
-      news:
-        "KIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS KIND  ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCSKIND ATTENTION NCR STUDENTS- ADDITIONAL LIST FOR TCS",
+      status: "Goinng on",
+      nameOfCompany: "Wipro",
       createdBy: "Rise Matheli",
-      createdAt: "10 hours ago"
+      createdAt: "10 hours ago",
+      jobsOffered: {
+        title: "Sales manager",
+        id: "0",
+        allowed: "Applicable"
+      }
     }
   ];
-
   openDrawer() {
     NavigationService.openDrawer();
   }
-  openNotification() {
-    console.log("openning notifs");
-    this.props.navigation.navigate("JobsHome");
+  _onPressJobName(id: String) {
+    console.log(id);
+    const NavigationActions = this.props.navigation;
+    this.props.navigation.navigate("JobsScreen", { jobId: id });
+    // NavigationActions.navigate({
+    // routeName: 'JobsHome',
+    // action: NavigationActions.navigate({ routeName: 'JobsScreen' }),
+    // }),
   }
   render() {
     return (
@@ -94,29 +132,71 @@ class NewsHome extends React.Component {
           </Right>
         </Header>
         <Content padder>
-          {this.allNews.map(news => {
+          {this.allNews.map(jobs => {
             return (
-              <Card key={news.id}>
-                <CardItem
-                  header
-                  button
-                  onPress={() => this._onPressCard(news.id)}
-                >
+              <Card key={jobs.id}>
+                <CardItem header button style={{ paddingBottom: 15 }}>
                   <View style={{ flex: 1, flexDirection: "column" }}>
-                    <Text style={{ color: "green" }}>{news.type}</Text>
-
-                    <Text style={{ color: "black", marginTop: 5 }}>
-                      {news.news}
+                    <Text style={{ color: "green", fontSize: 13 }}>
+                      {jobs.status}
                     </Text>
+                    <Content>
+                      <List>
+                        <ListItem thumbnail>
+                          <Left>
+                            {/* <Text>img</Text> */}
+                            <Thumbnail
+                              square
+                              source={{
+                                uri:
+                                  "https://facebook.github.io/react-native/docs/assets/favicon.png"
+                              }}
+                            />
+                          </Left>
+                          <Body>
+                            <Text>{jobs.nameOfCompany}</Text>
+                            <Text note numberOfLines={1}>
+                              Its time to build a difference . .
+                            </Text>
+                          </Body>
+                          <Right>
+                            <Button transparent>
+                              <Text>View</Text>
+                            </Button>
+                          </Right>
+                        </ListItem>
+                      </List>
+                    </Content>
+
+                    {/* <Text
+                      style={{ color: "black", marginTop: 5, fontSize: 25 }}
+                    >
+                      {jobs.nameOfCompany}
+                    </Text> */}
                   </View>
                 </CardItem>
-                <CardItem button>
-                  <Body>
-                    <Text style={{ fontSize: 13 }}>
-                      {news.createdBy} ~ {news.createdAt}.
-                    </Text>
-                  </Body>
-                </CardItem>
+                <List>
+                  <ListItem key={jobs.id}>
+                    <TouchableOpacity
+                      style={{
+                        paddingHorizontal: 10,
+                        margin: 0,
+                        flex: 1,
+                        flexDirection: "row",
+                        justifyContent: "space-between"
+                      }}
+                      onPress={() => this._onPressJobName(jobs.jobsOffered.id)}
+                    >
+                      <Body>
+                        <Text>{jobs.jobsOffered.title}</Text>
+                        <Text note>{jobs.jobsOffered.allowed}</Text>
+                      </Body>
+                      <Right>
+                        <Text style={{ color: "blue" }}>Check</Text>
+                      </Right>
+                    </TouchableOpacity>
+                  </ListItem>
+                </List>
               </Card>
             );
           })}
