@@ -108,10 +108,6 @@ class NewsHome extends React.Component {
     console.log(id);
     const NavigationActions = this.props.navigation;
     this.props.navigation.navigate("JobsScreen", { jobId: id });
-    // NavigationActions.navigate({
-    // routeName: 'JobsHome',
-    // action: NavigationActions.navigate({ routeName: 'JobsScreen' }),
-    // }),
   }
   render() {
     return (

@@ -73,7 +73,7 @@ class NewsHome extends React.Component {
   }
   openNotification() {
     console.log("openning notifs");
-    this.props.navigation.navigate("JobsHome");
+    this.props.navigation.navigate("NotificationsMain");
   }
   render() {
     return (

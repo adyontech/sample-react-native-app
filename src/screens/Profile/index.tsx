@@ -9,31 +9,14 @@ import {
   Button,
   Body,
   Content,
-  Card,
-  Text,
-  CardItem
+  Text
 } from "native-base";
-import {
-  Platform,
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  StatusBar,
-  TextInput,
-  SafeAreaView,
-  Keyboard,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Image
-} from "react-native";
+import { StyleSheet } from "react-native";
 import {
   NavigationInjectedProps,
   NavigationEventSubscription
 } from "react-navigation";
-import { Col, Row, Grid } from "react-native-easy-grid";
 
-import Entypo from "react-native-vector-icons/Entypo";
-const routes = ["Home", "Chat", "Profile"];
 interface Props extends NavigationInjectedProps {}
 export default class Profile extends Component {
   constructor(props) {
