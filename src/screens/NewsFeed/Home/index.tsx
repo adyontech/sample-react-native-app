@@ -73,7 +73,7 @@ class NewsHome extends React.Component {
   }
   openNotification() {
     console.log("openning notifs");
-    this.props.navigation.navigate("NotificationsMain");
+    this.props.navigation.navigate("JobsHome");
   }
   render() {
     return (
@@ -89,7 +89,7 @@ class NewsHome extends React.Component {
           </Body>
           <Right>
             <Button transparent onPress={this.openNotification}>
-              <Icon name="menu" />
+              <Icon name="ios-alarm" />
             </Button>
           </Right>
         </Header>

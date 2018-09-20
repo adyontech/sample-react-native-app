@@ -231,7 +231,7 @@ export default class JobsHome extends Component {
           {this.allNews.map(jobs => {
             return (
               <Card key={jobs.id}>
-                <CardItem header button>
+                <CardItem header button style={{ paddingBottom: 15 }}>
                   <View style={{ flex: 1, flexDirection: "column" }}>
                     <Text style={{ color: "grey", fontSize: 13 }}>
                       {jobs.status}

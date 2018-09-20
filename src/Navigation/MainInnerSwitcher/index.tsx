@@ -13,13 +13,13 @@ import NavigationService from "./../Services/NavigationService";
 
 const HomeScreenRouter = createDrawerNavigator(
   {
-    JobsHome: { screen: JobsHome },
-    Home: { screen: MainFeedScreen },
-    Profile: { screen: Profile },
     Applied: { screen: Applied },
+    Home: { screen: MainFeedScreen },
+    JobsHome: { screen: JobsHome },
+    Profile: { screen: Profile },
     UserSettings: { screen: UserSettings },
     Help: { screen: Help },
-    Notifications: { screen: Notifications }
+    AllNotifications: { screen: Notifications }
   },
   {
     contentComponent: props => (
