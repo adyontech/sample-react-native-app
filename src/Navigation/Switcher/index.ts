@@ -18,14 +18,7 @@ import AuthLoadingScreen from "./../../screens/AuthLoading/index";
 const AppStack = createStackNavigator(
   { InnerScreens: MainInnerScreenRouter },
   {
-    headerMode: "none",
-    transitionConfig: () => ({
-      transitionSpec: {
-        duration: 0,
-        timing: Animated.timing,
-        easing: Easing.step0
-      }
-    })
+    headerMode: "none"
   }
 );
 const AuthStack = createStackNavigator(
@@ -34,14 +27,7 @@ const AuthStack = createStackNavigator(
     ForgotPassword: ForgotPasswordScreen
   },
   {
-    headerMode: "none",
-    transitionConfig: () => ({
-      transitionSpec: {
-        duration: 0,
-        timing: Animated.timing,
-        easing: Easing.step0
-      }
-    })
+    headerMode: "none"
   }
 );
 export default createSwitchNavigator(
@@ -54,13 +40,6 @@ export default createSwitchNavigator(
     initialRouteName: "AuthLoading"
   },
   {
-    headerMode: "none",
-    transitionConfig: () => ({
-      transitionSpec: {
-        duration: 0,
-        timing: Animated.timing,
-        easing: Easing.step0
-      }
-    })
+    headerMode: "none"
   }
 );
