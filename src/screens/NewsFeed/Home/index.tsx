@@ -89,7 +89,7 @@ class NewsHome extends React.Component {
           </Body>
           <Right>
             <Button transparent onPress={this.openNotification}>
-              <Icon name="ios-alarm" />
+              <Icon name="ios-aarm" />
             </Button>
           </Right>
         </Header>
